@@ -50,6 +50,7 @@
    <br>
     
  <div align="left" dir="ltr">
+   ```
    <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -65,62 +66,65 @@
         />
 
 </RelativeLayout>
+
    </div>
   <br>
    وە دواتر پەیجێکی نوێ دروست بکە بەو ڕێگەیە
   <br>
    کلیکی لای ڕاست لەسەر app بکە دواتر new دواتر Activity دواتر Empty Project و دواتر لە Activity Name و Layout Name ناوی پەیجەکەت بنووسە کە من دەنووسم Page2
    <br>
-   دواتر لە بەشی کۆد نووسینی جافا بۆ MainActivity بنووسە
-   <div align="left" dir="ltr">
-     package com.listview;
-
+   دواتر لە بەشی کۆد نووسینی جافا بۆ MainActivity ئەمانە ئیمپۆرت بکە 
+  
+package com.listview;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-
+   <br>
+   وە ئەوانە دابنێ
+ <div align="left" dir="ltr">
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // nasandny listview
+        // سەرەتا ناساندنی لیستفیوەکەی دروستمان کرد
         ListView listView = findViewById(R.id.listview);
 
-        // danany item akan
+        // دانانی ئایتمەکان بۆ لیستفیوەکە
         List<String> list = new ArrayList<>();
         list.add("ئەوە یەکەم");
         list.add("ئەوە دووەم");
         list.add("ئەوە سێیەم");
         list.add("ئەوە چوارەم");
 
-        // array adapter lo away itemakan bnasenin w dwaya bikaina naw listview
+        // ئەرەی ئەداپتەرێک دادەنێین بۆ ناساندنی لیست ئایتمەکان
         ArrayAdapter arrayAdapter = new ArrayAdapter(
                 getApplicationContext(),
                 android.R.layout.simple_list_item_1,
                 list
         );
 
-        // esta adapteraka dakaina naw listviewaka
+        // ئێستا ئەداپتەرەکەی ناساندمان دەیکەینە ناو لیستفیو
         listView.setAdapter(arrayAdapter);
 
-        // awash danany onclick
+        // وە بە ئۆن کلیک ئەوە کاتەک کلیک لە ئایتمەکان دەکەین ڕوداوەک ڕووبدە دایدەنێین
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                 // بە ئیف پۆزەشنەکە دیاری دەکەین گەر ئایتمی یەکەم کلیکی لەسەر کرا چ ڕوودەدا
                 if (position == 0){
+                     // ئەوەیان بۆ ئەوەیە پەیجەکە دیاری بکەیت
                     Intent i = new Intent(MainActivity.this, Page2.class);
+                     // ئەوە بۆ ناردنی داتاکەیە
                     i.putExtra("babat","ئەوە زانیاری یەکەم");
+                     // ئەوەش بۆ ڕۆشتن بۆ ئەو پەیجەیە کە دیاریمان کردووە
                     startActivity(i);
 
                 } else if(position == 1){
@@ -140,6 +144,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-}
-     </dir>
+     </div>
   </div>
