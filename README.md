@@ -42,7 +42,104 @@
    <a href="https://imgbb.com/"><img src="https://i.ibb.co/pP0X5VY/dwam.png" alt="dwam" border="0"></a>
    <a href="https://imgbb.com/"><img src="https://i.ibb.co/8zjyyJC/dwamm.png" alt="seyam" border="0"></a>
    </div
-واتا ئەوە نیە بۆ هەر یەکێک لەو بەشەنا پەیجێکی ترمان دروست کردبێ هەمووی ئەچێتەوە ناو یەک پەیج کە کاتێ کلیکی لێ ئەکەیت
+واتا ئەوە نیە بۆ هەر یەکێک لەو بەشەنا پەیجێکی ترمان دروست کردبێ ، هەمووی ئەچێتەوە ناو یەک پەیج کە کاتێ کلیکی لێ ئەکەیت
   
-  
+   <br>
+   # چۆنیەتی دروستکردنی پڕۆژەکە
+  سەرەتا لە بەشی xml لە MainActivity جۆرەکە بکە بە RelativeLayout و دواتر listviewێک دروست بکە بەم جۆرە
+   <br>
+    
+ <div align="left" dir="ltr">
+   <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        />
+
+</RelativeLayout>
+   </div>
+  <br>
+   وە دواتر پەیجێکی نوێ دروست بکە بەو ڕێگەیە
+  <br>
+   کلیکی لای ڕاست لەسەر app بکە دواتر new دواتر Activity دواتر Empty Project و دواتر لە Activity Name و Layout Name ناوی پەیجەکەت بنووسە کە من دەنووسم Page2
+   <br>
+   دواتر لە بەشی کۆد نووسینی جافا بۆ MainActivity بنووسە
+   <div align="left" dir="ltr">
+     package com.listview;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // nasandny listview
+        ListView listView = findViewById(R.id.listview);
+
+        // danany item akan
+        List<String> list = new ArrayList<>();
+        list.add("ئەوە یەکەم");
+        list.add("ئەوە دووەم");
+        list.add("ئەوە سێیەم");
+        list.add("ئەوە چوارەم");
+
+        // array adapter lo away itemakan bnasenin w dwaya bikaina naw listview
+        ArrayAdapter arrayAdapter = new ArrayAdapter(
+                getApplicationContext(),
+                android.R.layout.simple_list_item_1,
+                list
+        );
+
+        // esta adapteraka dakaina naw listviewaka
+        listView.setAdapter(arrayAdapter);
+
+        // awash danany onclick
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0){
+                    Intent i = new Intent(MainActivity.this, Page2.class);
+                    i.putExtra("babat","ئەوە زانیاری یەکەم");
+                    startActivity(i);
+
+                } else if(position == 1){
+                    Intent i = new Intent(MainActivity.this, Page2.class);
+                    i.putExtra("babat","ئەوە زانیاری دووەم");
+                    startActivity(i);
+
+                } else if(position == 2){
+                    Intent i = new Intent(MainActivity.this, Page2.class);
+                    i.putExtra("babat","ئەوە زانیاری سێیەم");
+                    startActivity(i);
+                } else{
+                    Intent i = new Intent(MainActivity.this, Page2.class);
+                    i.putExtra("babat","ئەوە زانیاری چوارەم");
+                    startActivity(i);
+                }
+            }
+        });
+    }
+}
+     </dir>
   </div>
