@@ -75,20 +75,21 @@
    <br>
    دواتر لە بەشی کۆد نووسینی جافا بۆ MainActivity ئەمانە ئیمپۆرت بکە 
   
-package com.listview;
-import androidx.appcompat.app.AppCompatActivity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import java.util.ArrayList;
-import java.util.List;
+package com.listview; <br>
+import androidx.appcompat.app.AppCompatActivity; <br>
+import android.content.Intent; <br>
+import android.os.Bundle; <br>
+import android.view.View; <br>
+import android.widget.AdapterView; <br>
+import android.widget.ArrayAdapter;  <br>
+import android.widget.ListView;   <br>
+import java.util.ArrayList;   <br>
+import java.util.List;  
 
    <br>
    وە ئەوانە دابنێ
  <div align="left" dir="ltr">
+   ```
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -144,5 +145,7 @@ import java.util.List;
             }
         });
     }
+
+
      </div>
   </div>
