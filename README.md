@@ -74,7 +74,7 @@
    کلیکی لای ڕاست لەسەر app بکە دواتر new دواتر Activity دواتر Empty Project و دواتر لە Activity Name و Layout Name ناوی پەیجەکەت بنووسە کە من دەنووسم Page2
    <br>
    دواتر لە بەشی کۆد نووسینی جافا بۆ MainActivity ئەمانە ئیمپۆرت بکە 
-  
+   <div align="left" dir="ltr">
 package com.listview; <br>
 import androidx.appcompat.app.AppCompatActivity; <br>
 import android.content.Intent; <br>
@@ -85,15 +85,12 @@ import android.widget.ArrayAdapter;  <br>
 import android.widget.ListView;   <br>
 import java.util.ArrayList;   <br>
 import java.util.List;  
+   </div>
 
    <br>
    وە ئەوانە دابنێ
  <div align="left" dir="ltr">
-   ```
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+  
 
         // سەرەتا ناساندنی لیستفیوەکەی دروستمان کرد
         ListView listView = findViewById(R.id.listview);
@@ -144,8 +141,62 @@ import java.util.List;
                 }
             }
         });
-    }
-
-
-     </div>
   </div>
+<div align="right" dir="rtl">
+ئێستا لە xmlی پەیجی دووەم تێکست فیوەک دابنێ یان بنووسە
+<div align="left" dir="ltr">
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Page2">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="بابەتەکان"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</div>
+وە لە بەشی کۆدی جافا لە پەیجی دووەم ئەمە ئیمپۆرت بکە
+   <div align="left" dir="ltr">
+     package com.listview; <br>
+import androidx.appcompat.app.AppCompatActivity; <br>
+import android.os.Bundle; <br>
+import android.widget.TextView;  
+   </div>
+   وە بنووسە
+    <div align="left" dir="ltr">
+  
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.page2);
+
+        
+        // بۆ ناساندنی تێکست فیووەکە
+        TextView textView = findViewById(R.id.textView);
+
+        // بۆ وەرگرتنەوەی داتاکان
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            textView.setText(extras.getString("babat"));
+        }
+
+    }
+      
+   </div>
+   
+   بە هیوای سەرکەوتن
+   <br>
+   <a href="https://www.mediafire.com/file/pfurbxulwur9meg/listview.rar/file">سۆرس کۆدی پڕۆژەکە</a>
+   <br>
+   برای بچووکتان - دانا شێرزاد
+</div>
+   
+   
